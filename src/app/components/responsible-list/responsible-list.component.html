@@ -1,1 +1,46 @@
-<p>responsible-list works!</p>
+<div class = "row h2 my-4 text-center">
+    <p>Список мат.ответственных</p>
+</div>
+<div class="row">
+    <div class="col text-start">
+        <button (click)="navigateAdd()" class="btn btn-primary mb-1">Добавить мат.ответственного</button>
+    </div>
+    <div class="col-3 text-end">
+        <input type="text" class="form-control" placeholder="Поиск" (keyup)="applyFilter($event)">
+    </div>
+</div>
+<table class = "table table-striped table-bordered table-hover align-middle text-center">
+    <thead>
+        <tr>
+            <!-- <th><a (click)="applySort1()">Логин</a></th>
+            <th><a (click)="applySort2()">ФИО</a></th>
+            <th><a (click)="applySort3()">Должность</a></th>
+            <th><a (click)="applySort4()">Регион</a></th>
+            <th>Действия</th> -->
+            <th><a>Логин</a></th>
+            <th><a>ФИО</a></th>
+            <th><a>Должность</a></th>
+            <th><a>Регион</a></th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let responsible of responsibles" >
+            <td> {{ responsible.username }} </td>
+            <td> {{ responsible.fio }} </td>
+            <td> {{ responsible.roleByRoleId.roleNameLocal }} </td>
+            <td> {{ responsible.regionByRegionId.regionId + ' - ' + responsible.regionByRegionId.regionName }} </td>
+            <td>
+                <button (click) = "navigateUpdate(responsible.responsibleId)" class = "btn btn-primary">Изменить</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <div class="col">
+        
+    </div>
+    <div class="col-3 text-end">
+        <button (click) = "saveTable()" class = "btn btn-primary">Экспорт</button>
+    </div>
+</div>

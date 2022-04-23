@@ -24,7 +24,8 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

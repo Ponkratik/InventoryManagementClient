@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const { username, password } = this.form;
+    console.log(this.form);
     this.authService.login(username!, password!).subscribe({
       next: data => {
         this.tokenStorage.saveToken(data.token);
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.form.roleByRoleId = this.tokenStorage.getUser().roleByRoleId;
-        //this.redirectToHomePage();
+        this.redirectToHomePage();
         this.reloadPage();
       },
       error: err => {
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
 
-  /*redirectToHomePage(): void {
+  redirectToHomePage(): void {
     this.router.navigate(['home']);
-  }*/
+  }
 }
