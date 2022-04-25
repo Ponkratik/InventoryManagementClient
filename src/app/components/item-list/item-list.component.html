@@ -1,0 +1,51 @@
+<div class = "row h2 my-4 text-center">
+    <p>Список мат.ценностей</p>
+</div>
+<div class="row">
+    <div class="col text-start">
+        <button (click)="navigateAdd()" class="btn btn-primary mb-1">Добавить мат.ценность</button>
+    </div>
+    <div class="col-3 text-end">
+        <input type="text" class="form-control" placeholder="Поиск" (keyup)="applyFilter($event)">
+    </div>
+</div>
+<table class = "table table-striped table-bordered table-hover align-middle text-center">
+    <thead>
+        <tr>
+            <th><a>Название</a></th>
+            <th><a>Инв.номер</a></th>
+            <th><a>Сер.номер</a></th>
+            <th><a>Описание</a></th>
+            <th><a>Регион</a></th>
+            <th><a>Мат.отв</a></th>
+            <th><a>Прибыло</a></th>
+            <th>Действия</th>
+            <th>Вложения</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let item of items" >
+            <td> {{ item.itemName }} </td>
+            <td> {{ item.inventoryNumber }} </td>
+            <td> {{ item.serialNumber }} </td>
+            <td> {{ item.description }} </td>
+            <td> {{ item.responsibleByResponsibleId.regionByRegionId.regionId + ' - ' +  item.responsibleByResponsibleId.regionByRegionId.regionName }} </td>
+            <td> {{ item.responsibleByResponsibleId.fio }} </td>
+            <td> {{ item.arrived }} </td>
+            <td>
+                <button (click) = "navigateUpdate(item.itemId)" class = "btn btn-primary">Изменить</button>
+            </td>
+            <td>
+                <button (click) = "navigateAttachments(item.itemId)" class = "btn btn-primary">Вложения</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <div class="col">
+        
+    </div>
+    <div class="col-3 text-end">
+        <button (click) = "saveTable()" class = "btn btn-primary">Экспорт</button>
+    </div>
+</div>

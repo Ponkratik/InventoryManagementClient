@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3 text-center p-4 mt-4">
+        <div class="row">
+            <h3 class="text-center">Добавить мат.ценность</h3>
+            <hr />
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit($event)" #f="ngForm" novalidate>
+                <div class="form-group text-start">
+                    <label class="ms-1 my-1" for="itemName">Название</label>
+                    <input type="text" class="form-control" name="itemName" [(ngModel)]="form.itemName" required
+                        minlength="3" maxlength="255" #itemName="ngModel" />
+                    <div class="alert-danger text-center" *ngIf="itemName.errors && f.submitted">
+                        <div *ngIf="itemName.errors['required']">Название необходимо</div>
+                        <div *ngIf="itemName.errors['minlength']">
+                            Название должно быть длиной более 3 символов
+                        </div>
+                        <div *ngIf="itemName.errors['maxlength']">
+                            Название должно быть длиной менее 255 символов
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-start">
+                    <label class="ms-1 my-1" for="inventoryNumber">Инвентарный номер</label>
+                    <input type="text" class="form-control" name="inventoryNumber" [(ngModel)]="form.inventoryNumber" required
+                        minlength="3" maxlength="255" #inventoryNumber="ngModel" />
+                    <div class="alert-danger text-center" *ngIf="inventoryNumber.errors && f.submitted">
+                        <div *ngIf="inventoryNumber.errors['required']">Инвентарный номер необходим</div>
+                        <div *ngIf="inventoryNumber.errors['minlength']">
+                            Инвентарный номер должен быть длиной более 3 символов
+                        </div>
+                        <div *ngIf="inventoryNumber.errors['maxlength']">
+                            Инвентарный номер должен быть длиной менее 255 символов
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-start">
+                    <label class="ms-1 my-1" for="serialNumber">Серийный номер</label>
+                    <input type="text" class="form-control" name="serialNumber" [(ngModel)]="form.serialNumber" required
+                        minlength="3" maxlength="255" #serialNumber="ngModel" />
+                    <div class="alert-danger text-center" *ngIf="serialNumber.errors && f.submitted">
+                        <div *ngIf="serialNumber.errors['required']">Серийный номер необходим</div>
+                        <div *ngIf="serialNumber.errors['minlength']">
+                            Серийный номер должен быть длиной более 3 символов
+                        </div>
+                        <div *ngIf="serialNumber.errors['maxlength']">
+                            Серийный номер должен быть длиной менее 255 символов
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-start">
+                    <label class="ms-1 my-1" for="description">Описание</label>
+                    <input type="text" class="form-control" name="description" [(ngModel)]="form.description"
+                         maxlength="255" #description="ngModel" />
+                    <div class="alert-danger text-center" *ngIf="description.errors && f.submitted">
+                        <div *ngIf="description.errors['maxlength']">
+                            Описание должно быть длиной менее 255 символов
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-start">
+                    <label class="ms-1 my-1" for="responsibleByResponsibleId">Мат.ответственный</label>
+                    <input class="form-control" list="responsibleDataList" id="responsibleByResponsibleId"
+                        placeholder="Введите для поиска...">
+                    <datalist id="responsibleDataList">
+                        <option *ngFor = "let responsible of responsibles" [value]="responsible.fio">{{ responsible.fio }}</option>
+                    </datalist>
+                </div>
+                <div class="form-group text-start">
+                    <label class="ms-1 my-1" for="arrived">Дата поступления на баланс</label>
+                    <input type="date" class="form-control" datetime="dd.MM.yyyy" name="arrived" [(ngModel)]="form.arrived"
+                         maxlength="10" #arrived="ngModel" />
+                    <div class="alert-danger text-center" *ngIf="arrived.errors && f.submitted">
+                        <div *ngIf="arrived.errors['maxlength']">
+                            Дата поступления должна быть длиной менее 10 символов
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block mt-4 text-center">Добавить</button>
+                </div>
+                <div class="alert alert-warning my-2" *ngIf="f.submitted && !isSuccessful">
+                    Ошибка:<br />{{ errorMessage }}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <p class="text-center fw-light my-2 text-decoration-underline">
+            <a (click)="navigateToList()">Вернуться</a>
+        </p>
+    </div>
+</div>

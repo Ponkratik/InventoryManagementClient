@@ -55,7 +55,7 @@ export class ResponsibleUpdateComponent implements OnInit {
         this.roleStr = this.form.roleByRoleId.roleNameLocal;
         this.regionStr = this.form.regionByRegionId.regionName;
       }
-    })
+    });
   }
 
   onSubmit(event: any) {

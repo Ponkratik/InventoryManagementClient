@@ -6,6 +6,6 @@ export class Item {
     inventoryNumber!: string;
     serialNumber!: string;
     description!: string;
-    responsibleByResponsibleId?: Responsible;
+    responsibleByResponsibleId!: Responsible;
     arrived!: Date;
 }

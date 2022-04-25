@@ -11,6 +11,10 @@ import { ResponsibleListComponent } from './components/responsible-list/responsi
 import { ResponsibleUpdateComponent } from './components/responsible-update/responsible-update.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
+import { ItemListComponent } from './components/item-list/item-list.component';
+import { ItemAddComponent } from './components/item-add/item-add.component';
+import { ItemUpdateComponent } from './components/item-update/item-update.component';
+import { AttachmentsComponent } from './components/attachments/attachments.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { HomeComponent } from './components/home/home.component';
     ResponsibleAddComponent,
     ResponsibleListComponent,
     ResponsibleUpdateComponent,
-    HomeComponent
+    HomeComponent,
+    ItemListComponent,
+    ItemAddComponent,
+    ItemUpdateComponent,
+    AttachmentsComponent
   ],
   imports: [
     BrowserModule,
