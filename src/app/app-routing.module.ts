@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ItemAddComponent } from './components/item-add/item-add.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { ItemUpdateComponent } from './components/item-update/item-update.component';
+import { AttachmentsComponent } from './components/attachments/attachments.component';
 import { LoginComponent } from './components/login/login.component';
 import { ResponsibleAddComponent } from './components/responsible-add/responsible-add.component';
 import { ResponsibleListComponent } from './components/responsible-list/responsible-list.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'itemmanagement', component: ItemListComponent },
   { path: 'itemmanagement/add', component: ItemAddComponent },
   { path: 'itemmanagement/update/:id', component: ItemUpdateComponent},
+  { path: 'itemmanagement/attachments/:id', component: AttachmentsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
